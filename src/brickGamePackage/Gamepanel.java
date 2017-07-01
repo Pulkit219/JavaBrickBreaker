@@ -8,8 +8,9 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
-import com.sun.glass.ui.Timer;
+
 
 public class Gamepanel extends JPanel implements KeyListener, ActionListener{
 	private boolean play = false;
@@ -32,8 +33,8 @@ public class Gamepanel extends JPanel implements KeyListener, ActionListener{
 		addKeyListener(this);
 		setFocusable(true);
 		setFocusTraversalKeysEnabled(true);
-//		timer = new Timer(delay, this);
-//		timer.start();
+		timer = new Timer(delay, this);
+		timer.start();
 	}
 	
 public void paint(Graphics g)
@@ -56,7 +57,9 @@ public void paint(Graphics g)
 	
 	//ball
 	g.setColor(Color.blue);
-	g.fillRect(ballposX, ballposY, 20, 20);
+	g.fillOval(ballposX, ballposY, 20, 20);
+	
+	g.dispose();
 	
 }
 	@Override
@@ -75,7 +78,7 @@ public void paint(Graphics g)
 		}
 		if(e.getKeyCode() == KeyEvent.VK_LEFT)
 		{
-			if(playerX <=10)
+			if(playerX <10)
 			{
 				playerX =10;
 			}
@@ -114,9 +117,9 @@ public void paint(Graphics g)
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
-		
+	public void actionPerformed(ActionEvent e) {
+		timer.start();
+		repaint();
 	}
 
 }
