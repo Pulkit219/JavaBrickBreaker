@@ -50,6 +50,13 @@ public void paint(Graphics g)
 	g.fillRect(0, 0, 692, 3);
 	g.fillRect(691, 0, 3, 592);
 
+	//paddle
+	g.setColor(Color.green);
+	g.fillRect(playerX, 550, 100, 8);
+	
+	//ball
+	g.setColor(Color.blue);
+	g.fillRect(ballposX, ballposY, 20, 20);
 	
 }
 	@Override
