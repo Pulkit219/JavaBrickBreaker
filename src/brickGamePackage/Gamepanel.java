@@ -21,11 +21,11 @@ public class Gamepanel extends JPanel implements KeyListener, ActionListener{
 	private Timer timer;
 	private int delay = 8;
 	
-	private int playerX =310;
+	private int playerX =300;
 	
 	private int ballposX =120;
 	private int ballposY = 350;
-	private int ballXdir =-1;
+	private int ballXdir =5;
 	private int ballYdir =-2;
 	
 	public Gamepanel ()
@@ -36,7 +36,7 @@ public class Gamepanel extends JPanel implements KeyListener, ActionListener{
 		timer = new Timer(delay, this);
 		timer.start();
 	}
-	
+	 
 public void paint(Graphics g)
 
 {
@@ -105,13 +105,13 @@ public void paint(Graphics g)
 	}
 
 	@Override
-	public void keyReleased(KeyEvent arg0) {
+	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void keyTyped(KeyEvent arg0) {
+	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -119,6 +119,14 @@ public void paint(Graphics g)
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		timer.start();
+		if(play)
+		{
+			ballposX+=ballXdir;
+			if(ballposX > 692 )
+			{
+				ballposX-=ballXdir;
+			}
+		}
 		repaint();
 	}
 
