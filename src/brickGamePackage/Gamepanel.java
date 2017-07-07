@@ -63,6 +63,39 @@ public void paint(Graphics g)
 	g.dispose();
 	
 }
+
+
+@Override
+public void actionPerformed(ActionEvent e) {
+	timer.start();
+	if(play)
+	{
+		if(new Rectangle(ballposX,ballposY,20,20).intersects(new Rectangle(playerX, 550,100,8)))
+		{
+			ballYdir=-ballYdir;
+		}
+		ballposX+=ballXdir;
+		ballposY+=ballYdir;
+		
+		if(ballposX < 0)
+		{
+			ballXdir=-ballXdir;
+		}
+		
+		if(ballposY < 0)
+		{
+			ballYdir=-ballYdir;
+		}
+		if(ballposX >670)
+		{
+			ballXdir=-ballXdir;
+		}
+	
+	}
+	repaint();
+}
+
+
 	@Override
 	public void keyPressed(KeyEvent e) {
 		if(e.getKeyCode() == KeyEvent.VK_RIGHT)
@@ -93,6 +126,18 @@ public void paint(Graphics g)
 		
 	}
 	
+@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	
 	public void moveRight()
 	{
 		this.play=true;
@@ -105,46 +150,5 @@ public void paint(Graphics g)
 		this.playerX-=20;
 	}
 
-	@Override
-	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		timer.start();
-		if(play)
-		{
-			if(new Rectangle(ballposX,ballposY,20,20).intersects(new Rectangle(playerX, 550,100,8)))
-			{
-				ballYdir=-ballYdir;
-			}
-			ballposX+=ballXdir;
-			ballposY+=ballYdir;
-			
-			if(ballposX < 0)
-			{
-				ballXdir=-ballXdir;
-			}
-			
-			if(ballposY < 0)
-			{
-				ballYdir=-ballYdir;
-			}
-			if(ballposX >670)
-			{
-				ballXdir=-ballXdir;
-			}
-		
-		}
-		repaint();
-	}
 
 }
