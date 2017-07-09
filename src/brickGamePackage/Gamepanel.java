@@ -2,6 +2,7 @@ package brickGamePackage;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -28,9 +29,10 @@ public class Gamepanel extends JPanel implements KeyListener, ActionListener{
 	private int ballposY = 200;
 	private int ballXdir =1;
 	private int ballYdir =2;
-	
+	private MapGenerator map;
 	public Gamepanel ()
 	{
+		map = new MapGenerator(3,7);
 		addKeyListener(this);
 		setFocusable(true);
 		setFocusTraversalKeysEnabled(true);
@@ -44,6 +46,9 @@ public void paint(Graphics g)
 	//background
 	g.setColor(Color.black);
 	g.fillRect(1, 1, 692, 592);
+	
+	//drawing blocks
+	map.draw((Graphics2D) g);
 	
 	
 	//borders

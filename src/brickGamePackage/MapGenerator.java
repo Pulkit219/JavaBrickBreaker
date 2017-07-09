@@ -1,5 +1,6 @@
 package brickGamePackage;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 
 public class MapGenerator {
@@ -30,7 +31,8 @@ public class MapGenerator {
 			{
 				if(map[i][j]>0)
 				{
-					
+					g.setColor(Color.white);
+					g.fillRect(j*brickWidth + 80, i*brickHeight +50, brickWidth, brickHeight);
 				}
 			}
 		}
